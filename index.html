@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./index.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+    <div class="table-section">
+        <table>
+            <thead>
+            <th >
+                <div class="period-column">
+                    <div class="header-period-item">Müddət</div>
+                </div>
+            </th>
+            <th>
+                <span class="currency-AZN-USD">AZN</span>
+                <div class="AZN-column">
+                    <div class="Monthly-interest-payment">Faizlərin aylıq ödənişi</div>
+                    <div class="the end-of-period">Müddətin sonunda</div>
+                </div>
+            </th>
+            <th>
+                <span class="currency-AZN-USD">USD</span>
+                <div class="USD-column">
+                    <div class="Monthly-interest-payment">Faizlərin aylıq ödənişi</div>
+                    <div class="the end-of-period">Müddətin sonunda</div>
+                </div>
+            </th>
+        </thead>
+            <tbody class="values"></tbody>
+            <div></div>
+     
+        </table>
+    </div>
+    <div class="calculator-section">
+        <h5>Əmanət kalkulyatoru</h5>
+        <p>Gəlirini hesabla</p>
+        <div class="amount-period-currency">
+        <div class="amount">
+            <p>Əmanət məbləği</p>
+        <output id="amount" name="amount" for="amountRangeInput">100</output>
+        <input type="range" id="amountRangeInput" name="amountRangeInput" min="100" max="100000" value="100" oninput="amount.value=amountRangeInput.value">                                                       
+   </div>
+<div class="period">
+    <p>Müddət</p>
+    <output id="period" name="amount" for="periodRangeInput">12</output>
+    <input type="range" id="periodRangeInput" name="periodRangeInput" min="12" max="36" value="12" step="12" oninput="period.value=periodRangeInput.value">     
+</div>
+<div class="currency">
+    <p>Valyuta</p>
+    <select>
+        <option>AZN</option>
+        <option>USD</option>
+    </select>
+</div>
+    </div>
+</div>
+    </div>
+</body>
+<script src="./index.js"></script>
+</html>
