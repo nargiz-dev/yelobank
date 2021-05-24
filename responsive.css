@@ -1,0 +1,72 @@
+@media only screen and (max-width: 480px)
+ {
+     body{
+         overflow-x: visible;
+     }
+     .table-section{
+         overflow-x: auto;
+         margin-left: 0%;
+     }
+     table{
+         width:100%;
+         position: relative;
+     }
+     table th{
+         padding:12px 50px;
+     }
+    .currency-AZN-USD{
+       padding: 5px 110px;
+       top: 0;
+    }
+    .amount-period-currency{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+    }
+    .amount, .period{
+        border-bottom: 1px solid var(--secondary-color);
+    }
+    .outputs{
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid var(--secondary-color) ;
+        border-right: none;
+    }
+    .outputs div:nth-child(1){
+        border-bottom: 1px solid var(--secondary-color) ;
+        padding-right: 0px;
+        border-right: none ;
+        margin: 0%;
+    }
+    .outputs div:nth-child(2){
+        border-bottom: 1px solid var(--secondary-color);
+        padding-right: 0px;
+        border-right: none ;
+        margin: 0%;
+    }
+    input[type="range"], .currency{
+        height: 13px;
+        width: 90vw;
+    
+    }
+    .calculator-section{
+        display:block;
+    }
+    .amount , .period{
+        margin:0;
+        border: none;
+    }
+    .checkbox{
+        margin-top:100px;
+    }
+    .currency select{
+      width: 80vw;
+    }
+    .calculator-section h5, .calculator-section p:nth-child(2){
+        text-align: center;
+    }
+}
+
+
