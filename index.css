@@ -109,12 +109,16 @@ input[type=range]:focus {
     color:var(--font-color);    
   }
 #amount{
+    margin: 0;
       font-size: 28px;
       font-weight: bold;
+      color:black;
 }
 #period{
+    margin: 0;
     font-size: 28px;
     font-weight: bold;
+    color:black;
 }
 .currency select{
     width:180px;
@@ -222,6 +226,18 @@ input[type=range]:focus {
 }
 .hiddenItem{
     display: none;
+}
+#tableBody tr, #tableBody td:nth-child(2), #tableBody td:nth-child(3), #tableBody td:nth-child(5){
+border:none;
+font-weight: bold;
+}
+#tableBody td:nth-child(4), #tableBody td:nth-child(1){
+    border-bottom: none;
+    border-top: none;
+    font-weight: bold;
+}
+#tableBody td:nth-child(4){
+    border-right:none ;
 }
 
 

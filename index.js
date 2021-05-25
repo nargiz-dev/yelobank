@@ -1,84 +1,164 @@
-let valyuta ='';
- document.getElementById('valyuta').addEventListener('change', function() {
-  valyuta = this.value;
-  console.log(valyuta);
-});
+let AYLIQ = "AYLIQ";
+let MUDDETIN_SONUNDA = "MUDDETIN_SONUNDA";
+let AZN = "AZN";
+let USD = "USD";
+const values = {
+  12: {
+      AZN: {
+           AYLIQ: "0.11",
+           MUDDETIN_SONUNDA: "0.115",
+      },
+      USD: {
+          AYLIQ: "0.015",
+          MUDDETIN_SONUNDA: "0.02",
+      },
+  },   
+  24: {
+      AZN: {
+           AYLIQ: "0.11",
+           MUDDETIN_SONUNDA: "0.115",
+      },
+      USD: {
+          AYLIQ: "0.015",
+          MUDDETIN_SONUNDA: "0.02",
+      },
+  },  
+  36: {
+      AZN: {
+           AYLIQ: "0.11",
+           MUDDETIN_SONUNDA: "0.115",
+      },
+      USD: {
+          AYLIQ: "0.015",
+          MUDDETIN_SONUNDA: "0.02",
+      },
+  },  
+}
+let rows = "";
+const value =[12, 24, 36];
+for(let i=0; i<3; i++){
+rows += `
+  <tr>
+    <td>${value[i]}ay</td>
+    <td>${values[12][AZN][AYLIQ] * 100}%</td>
+    <td>${values[12][AZN][MUDDETIN_SONUNDA] * 100}%</td>
+    <td>${values[12][USD][AYLIQ] * 100}%</td>
+    <td>${values[12][USD][MUDDETIN_SONUNDA] * 100}%</td>
+  </tr>
+`;
+document.getElementById("tableBody").innerHTML = rows;
+}
+let faiz=``;
 let checkbox = document.querySelector('input[type="checkbox"]');
-let a = '';
 checkbox.addEventListener('change', function () {
   if (checkbox.checked) {
-   a= 'MUDDETIN SONUNDA';
-   console.log(a);
+   faiz= `${MUDDETIN_SONUNDA}` ;
    document.getElementById("style").classList.add("hiddenItem");
+   umumiFaizGeliri(mebleg,muddet, faiz);
   } else {
-    a= 'AYLIQ';
-   console.log(a); 
+    faiz= `${AYLIQ}` ;
    document.getElementById("style").classList.remove("hiddenItem");
+   umumiFaizGeliri(mebleg,muddet, faiz);
   }
 });
 
-let periodValue = document.getElementById("periodRangeInput");
-document.getElementById('periodRangeInput').addEventListener('click', function() {
+let valyuta ='';
+ document.getElementById('valyuta').addEventListener('change', function() {
+  valyuta = this.value;
+  if (valyuta === USD){
+   AYLIQ = values[12][USD][AYLIQ];
+   MUDDETIN_SONUNDA = values[12][USD][MUDDETIN_SONUNDA];
+    umumiFaizGeliri(mebleg,muddet, faiz);
+  }
+  else{
+    AYLIQ = values[12][AZN][AYLIQ];
+    MUDDETIN_SONUNDA = values[12][AZN][MUDDETIN_SONUNDA];
+     umumiFaizGeliri(mebleg,muddet, faiz);
+  }
+});
+/*let faiz=``;
+let checkbox = document.querySelector('input[type="checkbox"]');
+checkbox.addEventListener('change', function () {
+  if (checkbox.checked) {
+   faiz= `${MUDDETIN_SONUNDA}` ;
+   document.getElementById("style").classList.add("hiddenItem");
+   umumiFaizGeliri(mebleg,muddet, faiz);
+  } else {
+    faiz= `${AYLIQ}` ;
+   document.getElementById("style").classList.remove("hiddenItem");
+   umumiFaizGeliri(mebleg,muddet, faiz);
+  }
+});*/
+
+let mebleg="50000";
+const amountRange = document.querySelector(".amountRange");
+const amountOutput = document.querySelector('#amount');
+amountRange.addEventListener('input', function (){
+   amountOutput.innerHTML = amountRange.value;
+   mebleg= amountRange.value;
+   umumiFaizGeliri(mebleg,muddet, faiz);
+});
+let muddet = "24";
+const periodRange = document.querySelector(".periodRange");
+const periodOutput = document.querySelector('#period');
+periodRange.addEventListener('input', function (){
+   periodOutput.innerHTML = periodRange.value;
+    muddet= periodRange.value;
+    umumiFaizGeliri(mebleg,muddet, faiz);
+});
+
+
+const umumiFaizGeliri = (muddet, mebleg, faiz) =>{
+ console.log(+mebleg * +muddet * +faiz);
+}
+umumiFaizGeliri(mebleg,muddet,faiz);
+const ayliqFaizGeliri = (muddet, mebleg, faiz) =>{
+  return (+mebleg * +faiz/ +muddet);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*let periodValue = document.getElementById("periodRangeInput");
+document.getElementById('periodRangeInput').addEventListener('input', function() {
   periodCurrentValue = period.value;
   console.log(periodCurrentValue);
+  console.log(period);
 });
 let amountCurrentValue = '';
 let  amountValue = document.getElementById("amountRangeInput");
-document.getElementById('amountRangeInput').addEventListener('click', function() {
+document.getElementById('amountRangeInput').addEventListener('input', function() {
   amountCurrentValue = amount.value;
   console.log(amountCurrentValue);
-});
-function updatePeriod(val) {
-  document.getElementById('period').value=val; 
-}
-function updateAmount(val) {
-  document.getElementById('amount').value=val; 
-}
-const Values = [
-  {
-    months: 12,
-    interest: {
-      paidEachMonthAZN: 0.11,
-      paidAtTheEndAZN: 0.115,
-      paidEachMonthUSD: 0.015,
-      paidAtTheEndUSD: 0.02
-    }
-  },
-  {
-    months: 24,
-    interest: {
-      paidEachMonthAZN: 0.11,
-      paidAtTheEndAZN: 0.115,
-      paidEachMonthUSD: 0.015,
-      paidAtTheEndUSD: 0.02
-    }
-  },
-  {
-    months: 36,
-    interest: {
-      paidEachMonthAZN: 0.11,
-      paidAtTheEndAZN: 0.115, 
-      paidEachMonthUSD: 0.015,
-      paidAtTheEndUSD: 0.02
-    }
-  }
-];
-let rows = "";
-Values.forEach((value) => {
-  const { months, interest } = value;
-  const { paidEachMonthAZN, paidAtTheEndAZN, paidEachMonthUSD,paidAtTheEndUSD } = interest;
-  rows += `
-    <tr>
-      <td>${months}ay</td>
-      <td>${paidEachMonthAZN * 100}%</td>
-      <td>${paidAtTheEndAZN * 100}%</td>
-      <td>${paidEachMonthUSD * 100}%</td>
-      <td>${paidAtTheEndUSD * 100}%</td>
-    </tr>
-  `;
-});
-document.getElementById("tableBody").innerHTML = rows;
-const interestsFor12Months = Values.find( value => value.months === 12);
+});*/
 
 
 

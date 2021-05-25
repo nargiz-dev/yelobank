@@ -39,8 +39,6 @@
             
         </thead>
             <tbody id="tableBody"></tbody>
-            <div></div>
-     
         </table>
     </div>
     <div class="calculator-section">
@@ -49,13 +47,13 @@
         <div class="amount-period-currency">
         <div class="amount">
             <p>Əmanət məbləği</p>
-        <output id="amount" name="amount" for="amountRangeInput">100</output>
-        <input type="range" id="amountRangeInput" name="amountRangeInput" min="100" max="100000" value="100" onchange="updateAmount(this.value);">                                                       
+         <p id="amount">50000</p>
+        <input type="range" class="amountRange" id="amountRangeInput" min="100" max="100000" value="50000" step="100">                                                       
    </div>
 <div class="period">
     <p>Müddət</p>
-    <output id="period" name="amount" for="periodRangeInput">12</output>
-    <input type="range" id="periodRangeInput" name="periodRangeInput" min="12" max="36" value="12" step="12" onchange="updatePeriod(this.value);">     
+    <p id="period">24</p>
+    <input type="range"  class="periodRange" id="periodRangeInput" min="12" max="36" value="24" step="12">     
 </div>
 <div class="currency">
     <p>Valyuta</p>
@@ -78,7 +76,6 @@
 <div class="outputs">
     <div class="total-interest-income">
         <h5>Ümumi faiz gəliri</h5>
-        <p></p>
     </div>
     <div class="monthly-interest-income" id="style">
         <h5>Aylıq faiz gəliri</h5>
