@@ -54,11 +54,9 @@ checkbox.addEventListener('change', function () {
   if (checkbox.checked) {
    faiz= `${MUDDETIN_SONUNDA}` ;
    document.getElementById("style").classList.add("hiddenItem");
-   umumiFaizGeliri(mebleg,muddet, faiz);
   } else {
     faiz= `${AYLIQ}` ;
    document.getElementById("style").classList.remove("hiddenItem");
-   umumiFaizGeliri(mebleg,muddet, faiz);
   }
 });
 
@@ -68,35 +66,18 @@ let valyuta ='';
   if (valyuta === USD){
    AYLIQ = values[12][USD][AYLIQ];
    MUDDETIN_SONUNDA = values[12][USD][MUDDETIN_SONUNDA];
-    umumiFaizGeliri(mebleg,muddet, faiz);
   }
   else{
     AYLIQ = values[12][AZN][AYLIQ];
     MUDDETIN_SONUNDA = values[12][AZN][MUDDETIN_SONUNDA];
-     umumiFaizGeliri(mebleg,muddet, faiz);
   }
 });
-/*let faiz=``;
-let checkbox = document.querySelector('input[type="checkbox"]');
-checkbox.addEventListener('change', function () {
-  if (checkbox.checked) {
-   faiz= `${MUDDETIN_SONUNDA}` ;
-   document.getElementById("style").classList.add("hiddenItem");
-   umumiFaizGeliri(mebleg,muddet, faiz);
-  } else {
-    faiz= `${AYLIQ}` ;
-   document.getElementById("style").classList.remove("hiddenItem");
-   umumiFaizGeliri(mebleg,muddet, faiz);
-  }
-});*/
-
 let mebleg="50000";
 const amountRange = document.querySelector(".amountRange");
 const amountOutput = document.querySelector('#amount');
 amountRange.addEventListener('input', function (){
    amountOutput.innerHTML = amountRange.value;
    mebleg= amountRange.value;
-   umumiFaizGeliri(mebleg,muddet, faiz);
 });
 let muddet = "24";
 const periodRange = document.querySelector(".periodRange");
@@ -104,7 +85,6 @@ const periodOutput = document.querySelector('#period');
 periodRange.addEventListener('input', function (){
    periodOutput.innerHTML = periodRange.value;
     muddet= periodRange.value;
-    umumiFaizGeliri(mebleg,muddet, faiz);
 });
 
 
