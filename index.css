@@ -16,7 +16,7 @@ body{
     --font-color:#00000080;
 }
 .table-section{
-margin-left: 15%;
+margin-left: 18vw;
 }
 table{
     margin-top: 50px;
@@ -98,11 +98,8 @@ input[type="range"]{
     border-radius: 25px;
     border: 0px solid #000101;
     display:block;
-    /*margin-right:  20px; */
 }
-input[type=range]:focus {
-    background:#FF96AB;
-  }
+
 .amount p, .period p, .currency p{
     font-size:15px;
     position:relative;
@@ -239,6 +236,17 @@ font-weight: bold;
 #tableBody td:nth-child(4){
     border-right:none ;
 }
+.umumiFaiz , .ayliqFaiz, .faizDerecesi{
+    font-size:26px;
+    font-weight: bold;
+    display:inline;
+}
+.currency-difference1 , .currency-difference2 {
+    font-size:20px;
+    font-weight: bold;
+    margin:2px;
+}
+
 
 
 
